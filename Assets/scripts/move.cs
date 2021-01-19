@@ -6,6 +6,7 @@ public class move : MonoBehaviour
 { public Rigidbody2D rb;
   public  float force=5f;
     public Vector2 jump;
+    public Transform death;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,29 @@ public class move : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("hmm");
+            Debug.Log("getting key and ready to jump");
                 rb.AddForce(jump * force,ForceMode2D.Impulse);
         }
-        
 
-
+       
       
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if (collision.collider.tag == "destroyer")
+        {
+            Debug.Log("tekhdem");
+            Destroy(this.gameObject);
+        }
+                
+
+    }
+
+
+
+
+
+    
+
+
 }
