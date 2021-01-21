@@ -31,7 +31,7 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
-       // hgscoretxt.text = PlayerPrefs.GetInt("Highscore",0).ToString();
+        hgscoretxt.text = PlayerPrefs.GetInt("Hgscore",Hgscore).ToString();
     }
 
 
@@ -43,7 +43,9 @@ public class Score : MonoBehaviour
         
         scoretxt.text = "Score :" + score.ToString();
         hgscoretxt.text = "HighScore :" + score.ToString();
-       // PlayerPrefs.SetInt("Highscore", Hgscore);
+        PlayerPrefs.SetInt("Hgscore", Hgscore);
+       
+
     }
 
 

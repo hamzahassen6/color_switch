@@ -6,12 +6,15 @@ public class move : MonoBehaviour
     public float force = 5f;
     public Vector2 jump;
     public Transform death;
+    public AudioSource drop;
+    public AudioSource bg ;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         jump = new Vector2(0, 1);
+        bg.Play();
 
     }
 
@@ -22,6 +25,7 @@ public class move : MonoBehaviour
         {
             Debug.Log("getting key and ready to jump");
             rb.AddForce(jump * force, ForceMode2D.Impulse);
+            drop.Play();
         }
 
 
